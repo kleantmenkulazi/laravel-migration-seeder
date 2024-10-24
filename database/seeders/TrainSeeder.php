@@ -19,7 +19,7 @@ class TrainSeeder extends Seeder
 
         for ($i = 0; $i < 10; $i++){
         $train = new Train();
-        $train->code = 'CODE';
+        $train->code = strtoupper(fake()->bothify('?#?#?#?#'))
         $train->company = fake()->company();
         $train->dep_station = fake()->city();
         $train->arr_station = fake()->city();
