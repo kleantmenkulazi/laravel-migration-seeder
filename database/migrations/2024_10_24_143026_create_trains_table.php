@@ -18,17 +18,10 @@ return new class extends Migration
             $table->string('arr_station', 64);
             $table->time('dep_time');
             $table->arr('arr_time');
+            
             $table->tinyInteger('carriages_number')->nullable()->unsigned();
             $table->boolean('on_time')->default(true);
             $table->boolean('cancelled')->default(false);
-            
-
-
-
-
-
-
-
             $table->timestamps();
         });
     }
