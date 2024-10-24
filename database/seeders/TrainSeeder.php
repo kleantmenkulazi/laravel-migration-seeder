@@ -15,16 +15,20 @@ class TrainSeeder extends Seeder
      */
     public function run(): void
     {
+        Train::truncate();
+
+        for ($i = 0; $i < 10; $i++){
         $train = new Train();
         $train->code = 'CODE';
-        $train->company = 'COMPANY';
-        $train->dep_station = 'DEP STATION';
-        $train->arr_station = 'ARR STATION';
-        $train->dep_time = 12;
-        $train->arr_time = 13;
-        $train->carriages_number = 8;
-        $train->on_time = true;
-        $train->canceled = false;
+        $train->company = fake()->company();
+        $train->dep_station = fake()->city();
+        $train->arr_station = fake()->city();
+        $train->dep_time = fake()->time();
+        $train->arr_time = fake()->time();
+        $train->carriages_number = rand(2,10);
+        $train->on_time = fake()->boolean(70);
+        $train->canceled = fake()->boolean(20);
         $train->save();
+    }
     }
 }
